@@ -1,21 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Screen from './app/screens/Screen';
+
+import colors from './app/config/colors';
+import Numpad from './app/components/Numpad';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Screen>
+      {/* calculator screen-display */}
+      <View style={styles.display}>
+
+      </View>
+
+      {/* numpad */}
+      <View style={styles.numpad}>
+        <Numpad />
+      </View>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  display: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: colors.lightgray,
   },
-});
+  numpad: {
+    flex: 2,
+    backgroundColor: colors.gray,
+    padding: 5,
+  }
+})
