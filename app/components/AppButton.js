@@ -1,22 +1,24 @@
 import React from 'react';
-import { Dimensions, Text, StyleSheet, View } from 'react-native';
+import { Dimensions, Text, TouchableOpacity, StyleSheet, View } from 'react-native';
 import colors from '../config/colors';
 
-const _width = Dimensions.get('screen').width * 0.25;
+const horizontalSize = 1;
 
-function AppButton({ caption }) {
+function AppButton({ caption, backgroundColor = colors.lightgray, color = colors.black, onPress }) {
 
     return (
-        <View style={styles.button}>
-            <Text style={styles.text}>{caption}</Text>
-        </View>
+        <TouchableOpacity onPress={onPress}>
+            <View style={[styles.button, { backgroundColor: backgroundColor }]}>
+                <Text style={[styles.text, { color: color }]}>{caption && caption}</Text>
+            </View>
+        </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     button: {
-        width: 100,
-        height: 100,
+        width: 80,
+        height: 80,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: colors.lightgray,
