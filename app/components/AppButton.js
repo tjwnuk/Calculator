@@ -8,7 +8,7 @@ function AppButton({ caption }) {
 
     return (
         <View style={styles.button}>
-            <Text>1</Text>
+            <Text style={styles.text}>{caption}</Text>
         </View>
     );
 }
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     text: {
-        fontSize: 20,
+        fontSize: 40,
         color: colors.black,
     }
 })
