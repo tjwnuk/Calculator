@@ -5,7 +5,7 @@ import AppButton from './AppButton';
 
 function Numpad({ onPress, childToParent }) {
     const numbers = [
-        { caption: 'C', backgroundColor: colors.orange },
+        { caption: 'C', backgroundColor: colors.orange, color: colors.lightgray },
         { caption: '(' },
         { caption: ')' },
         { caption: 7 },
@@ -52,6 +52,8 @@ function Numpad({ onPress, childToParent }) {
                             <AppButton
                                 caption={item.caption}
                                 key={item}
+                                icon={typeof (item.icon) !== 'undefined' ? item.icon : null}
+                                color={typeof (item.color) !== 'undefined' ? item.color : colors.black}
                                 backgroundColor={typeof (item.backgroundColor) !== 'undefined' ? item.backgroundColor : colors.lightgray}
                                 onPress={() => clickHandler(item)}
                             />
