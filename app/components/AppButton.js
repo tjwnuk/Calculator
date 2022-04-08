@@ -1,15 +1,17 @@
 import React from 'react';
 import { Dimensions, Text, TouchableOpacity, StyleSheet, View } from 'react-native';
 import colors from '../config/colors';
+// import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const horizontalSize = 1;
 
-function AppButton({ caption, backgroundColor = colors.lightgray, color = colors.black, onPress }) {
+function AppButton({ caption, backgroundColor = colors.lightgray, color = colors.black, onPress, icon }) {
 
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={[styles.button, { backgroundColor: backgroundColor }]}>
-                <Text style={[styles.text, { color: color }]}>{caption && caption}</Text>
+                <Text style={[styles.text, { color: color }]}>{caption}</Text>
+                {/* {icon && <MaterialCommunityIcons name={icon} size={styles.text.fontSize} />} */}
             </View>
         </TouchableOpacity>
     );

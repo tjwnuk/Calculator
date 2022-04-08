@@ -3,23 +3,23 @@ import { FlatList, View, StyleSheet, Text } from 'react-native';
 import colors from '../config/colors';
 import AppButton from './AppButton';
 
-function Numpad(props) {
+function Numpad({ onPress, childToParent }) {
     const numbers = [
         { caption: 'C', backgroundColor: colors.orange },
         { caption: '(' },
         { caption: ')' },
-        { caption: 1 },
-        { caption: 2 },
-        { caption: 3 },
-        { caption: 4 },
-        { caption: 5 },
-        { caption: 6 },
         { caption: 7 },
         { caption: 8 },
         { caption: 9 },
+        { caption: 4 },
+        { caption: 5 },
+        { caption: 6 },
+        { caption: 1 },
+        { caption: 2 },
+        { caption: 3 },
         { caption: '.' },
         { caption: 0 },
-        { caption: '' },
+        { caption: 'bksp', icon: 'backspace' },
     ];
 
     const controls = [
@@ -30,6 +30,13 @@ function Numpad(props) {
         { name: 'equals', caption: '=', backgroundColor: colors.orange },
     ];
 
+    const clickHandler = (item) => {
+        // console.log(item.caption)
+        childToParent(item.caption)
+    }
+
+    let _keyExtractor = (item, index) => item.key + index;
+
     return (
         <View style={styles.container}>
 
@@ -37,13 +44,16 @@ function Numpad(props) {
             <View style={styles.leftColumn}>
                 <FlatList
                     data={numbers}
-                    contentContainerStyle={{ justifyContent: 'center', flexDirection: "row", flexWrap: "wrap", }}
+                    contentContainerStyle={{ justifyContent: 'center', alignContent: 'space-between', }}
+                    keyExtractor={_keyExtractor}
+                    numColumns={3}
                     renderItem={({ item }) => {
                         return (
                             <AppButton
                                 caption={item.caption}
+                                key={item}
                                 backgroundColor={typeof (item.backgroundColor) !== 'undefined' ? item.backgroundColor : colors.lightgray}
-                                onPress={() => { alert(item.caption) }}
+                                onPress={() => clickHandler(item)}
                             />
                         )
                     }}
@@ -54,12 +64,15 @@ function Numpad(props) {
             <View style={styles.rightColumn}>
                 <FlatList
                     data={controls}
-                    contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap" }}
+                    keyExtractor={_keyExtractor}
                     renderItem={({ item }) => {
                         return (
-                            <AppButton caption={item.caption}
+                            <AppButton
+                                caption={item.caption}
+                                key={item}
                                 backgroundColor={typeof (item.backgroundColor) !== 'undefined' ? item.backgroundColor : colors.violet}
                                 color={colors.lightgray}
+                                onPress={() => clickHandler(item)}
                             />
                         )
                     }}
