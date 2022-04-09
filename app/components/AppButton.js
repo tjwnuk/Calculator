@@ -10,13 +10,13 @@ function AppButton({ caption, backgroundColor = colors.lightgray, color = colors
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={[styles.button, { backgroundColor: backgroundColor }]}>
-                <Text style={[styles.text, { color: color }]}>{icon == null ? caption : ''}</Text>
+                {!icon && <Text style={[styles.text, { color: color }]}>{caption}</Text>}
                 {icon &&
                     <View style={{
                         flex: 1,
                         padding: 0,
-                        justifyContent: 'flex-start',
-                        alignItems: 'flex-start',
+                        justifyContent: 'center',
+                        alignItems: 'center',
                     }}>
                         <MaterialCommunityIcons
                             name={icon}

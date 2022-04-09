@@ -1,11 +1,22 @@
 {
   "expo": {
     "name": "Calculator",
-    "slug": "Calculator",
+    "icon": "./icon.png",
+    "slug": "calculator",
     "version": "1.0.0",
+    "ios": {
+      "bundleIdentifier": "com.github.tjwnuk.calculator",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.github.tjwnuk.calculator",
+      "versionCode": 1
+    },
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "description": "Simple calculator",
+    "githubUrl": "https://github.com/tjwnuk/Calculator"
   },
   "name": "Calculator"
 }
