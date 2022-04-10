@@ -23,7 +23,7 @@ export default function App() {
     if (button == 'bksp') {
       if (equationString.length == 0) return;
 
-      setEquationString(equationString.slice(0, -1));
+      setEquationString(equationString.toString().substring(0, equationString.length - 1));
       return
     }
     if (button == '=') {

@@ -3,10 +3,10 @@
     "name": "Calculator",
     "icon": "./icon.png",
     "slug": "calculator",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "ios": {
       "bundleIdentifier": "com.github.tjwnuk.calculator",
-      "buildNumber": "1.0.0"
+      "buildNumber": "1.0.1"
     },
     "android": {
       "package": "com.github.tjwnuk.calculator",
